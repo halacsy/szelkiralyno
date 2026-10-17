@@ -45,15 +45,16 @@ Minden ár forintban, 27% áfával számolva.
 | Code Zero vitorla ~25 m² (Hunsails) | 637 000 | 808 990 |
 | Code Zero felszerelés rollerrel, 18-as csörlővel a kajüttetőn | 720 000 | 914 400 |
 | Dometic fiókos hűtő | 358 000 | 454 660 |
-| **Összesen** | **2 265 000** | **2 876 550** |
+| ÜPE orrkilépő | 176 000 | 223 520 |
+| **Összesen** | **2 441 000** | **3 100 070** |
 
 ## Összesítés
 
 | | Bruttó |
 |---|---:|
 | Számlázott összeg (3 számla) | 21 461 222 |
-| További felszerelés árlista szerint | 2 876 550 |
-| **Új ár összesen** | **24 337 772** |
+| További felszerelés árlista szerint | 3 100 070 |
+| **Új ár összesen** | **24 561 292** |
 
 ## Számlák
 
