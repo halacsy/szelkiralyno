@@ -128,6 +128,23 @@ figure { margin: 0; overflow: hidden; border-radius: 3px; background: var(--pape
 .gallery figure:nth-child(4) { grid-column: span 3; grid-row: span 2; }
 .gallery-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: end; gap: 12px; margin-bottom: 28px; }
 
+.category-wrap { display: grid; grid-template-columns: 1.4fr 1fr; gap: clamp(20px, 4vw, 48px); align-items: stretch; margin-bottom: clamp(48px, 8vw, 96px); }
+.category-wrap > * { min-width: 0; }
+.cat-pic { min-height: 280px; }
+.pic-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.pic-pair figure { aspect-ratio: 3 / 4; }
+.heritage-pic { position: relative; aspect-ratio: 4 / 3; max-width: 100%; }
+.heritage-pic .badge { position: absolute; left: 14px; bottom: 10px; font-family: var(--display); font-weight: 800; font-size: clamp(2.6rem, 6vw, 4rem); line-height: 1; color: #fff; text-shadow: 0 2px 12px rgba(0,0,0,.45); }
+.slides { display: flex; gap: 10px; overflow-x: auto; scroll-snap-type: x mandatory; scroll-behavior: smooth; border-radius: 3px; }
+.slides:focus-visible { outline: 2px solid var(--water); outline-offset: 4px; }
+.slide { position: relative; flex: 0 0 100%; aspect-ratio: 3 / 2; max-height: 78vh; scroll-snap-align: center; background: #0B151D; }
+.slide img { object-fit: contain; }
+.slide figcaption { position: absolute; left: 12px; bottom: 12px; background: rgba(8,20,34,.6); color: #fff; font: 500 .8rem var(--mono); padding: 4px 10px; border-radius: 3px; }
+.slide-nav { display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 14px; font-family: var(--mono); font-size: .85rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.slide-nav button { background: var(--paper-2); color: var(--ink); border: 1px solid var(--line); border-radius: 999px; width: 44px; height: 44px; font-size: 1.1rem; cursor: pointer; }
+.slide-nav button:focus-visible { outline: 2px solid var(--water); outline-offset: 2px; }
+@media (max-width: 860px) { .category-wrap { grid-template-columns: 1fr; } .cat-pic { aspect-ratio: 4 / 3; min-height: 0; } .slide { aspect-ratio: 4 / 5; } }
+
 /* Heritage */
 .heritage .wrap { display: grid; grid-template-columns: 1fr 1.3fr; gap: clamp(28px, 5vw, 72px); }
 .heritage .wrap > * { min-width: 0; }
@@ -244,6 +261,9 @@ footer .wrap { padding-block: 18px 28px; border-top: 1px solid rgba(243,247,248,
     <div class="day-head">
       <p class="eyebrow">Használat</p>
       <h2>Mire jó</h2>
+      <p>Azoknak ajánljuk, akik sokat akarnak vitorlázni. Én egy évben 40 napot voltam rajta, most nem tudok ennyit kimenni, ezért adom el.</p>
+    </div>
+    <div class="category-wrap">
       <div class="category">
         <h3>Mi az a daysailer?</h3>
         <p>Olyan vitorlás, amit néhány órás vagy egynapos vitorlázásra terveznek, nem hosszú tengeri útra. A kategória jellemzői:</p>
@@ -255,7 +275,7 @@ footer .wrap { padding-block: 18px 28px; border-top: 1px solid rgba(243,247,248,
         </ul>
         <p>A Scholtz 8.8 a Balatonon, a Balatonra készült, gyakori, rövid kifutásokra. Nem kell hozzá egész napos készülődés: lemész a kikötőbe, és fél órán belül vitorlázol.</p>
       </div>
-      <p>Azoknak ajánljuk, akik sokat akarnak vitorlázni. Én egy évben 40 napot voltam rajta, most nem tudok ennyit kimenni, ezért adom el.</p>
+      <figure class="cat-pic"><img src="img/kokpit.jpg" alt="A nagy kokpit és a kajütbejárat vitorlázás közben" loading="lazy"></figure>
     </div>
     <div class="day">
       <article class="moment">
@@ -276,7 +296,7 @@ footer .wrap { padding-block: 18px 28px; border-top: 1px solid rgba(243,247,248,
         </div>
       </article>
       <article class="moment">
-        <figure class="pic tall"><img src="img/fedelzet.jpg" alt="A Szélkirálynő felülről a kikötőben: hosszú teak fedélzet és tágas kokpit" loading="lazy"></figure>
+        <div class="pic-pair"><figure><img src="img/fedelzet.jpg" alt="A Szélkirálynő felülről a kikötőben: hosszú teak fedélzet és tágas kokpit" loading="lazy"></figure><figure><img src="img/kokpit-kint.jpg" alt="A tágas kokpit a kikötőben, kávéfőzés közben" loading="lazy"></figure></div>
         <div>
           <p class="time">Társaságban</p>
           <h3>Hatan is kényelmes</h3>
@@ -292,7 +312,7 @@ footer .wrap { padding-block: 18px 28px; border-top: 1px solid rgba(243,247,248,
         </div>
       </article>
       <article class="moment">
-        <figure class="pic"><img src="img/kikoto.jpg" alt="A kék testű Szélkirálynő a kikötőben, mögötte nádas és a Balaton" loading="lazy"></figure>
+        <figure class="pic"><img src="img/kikoto-este.jpg" alt="A Szélkirálynő a kikötőben, esti fényben" loading="lazy"></figure>
         <div>
           <p class="time">Motor</p>
           <h3>Elektromos, ezért bármikor mehetsz</h3>
@@ -323,18 +343,31 @@ footer .wrap { padding-block: 18px 28px; border-top: 1px solid rgba(243,247,248,
     <div class="gallery-head">
       <div><p class="eyebrow">Képek</p><h2>Közelről</h2></div>
     </div>
-    <div class="gallery">
-      <figure><img src="img/vitorlazas2.jpg" alt="A Szélkirálynő vitorlázás közben, kék ég alatt" loading="lazy"></figure>
-      <figure><img src="img/orr.jpg" alt="Teak orrfedélzet" loading="lazy"></figure>
-      <figure><img src="img/kikoto-este.jpg" alt="A Szélkirálynő a kikötőben, esti fényben" loading="lazy"></figure>
-      <figure><img src="img/naplemente.jpg" alt="Naplemente a fock mögött" loading="lazy"></figure>
+    <div class="slides" id="slides" tabindex="0" aria-label="Képek">
+      <figure class="slide"><img src="img/vitorlazas2.jpg" alt="Vitorlázás a Balatonon" loading="lazy"><figcaption>Vitorlázás a Balatonon</figcaption></figure>
+      <figure class="slide"><img src="img/vitorlazas1.jpg" alt="Teljes vitorlázattal" loading="lazy"><figcaption>Teljes vitorlázattal</figcaption></figure>
+      <figure class="slide"><img src="img/scholtz88-egyedul.jpg" alt="Egy emberrel (fotó: Style Jacht)" loading="lazy"><figcaption>Egy emberrel (fotó: Style Jacht)</figcaption></figure>
+      <figure class="slide"><img src="img/autopilot.jpg" alt="Robotpilótával, kávé mellett" loading="lazy"><figcaption>Robotpilótával, kávé mellett</figcaption></figure>
+      <figure class="slide"><img src="img/fedelzet.jpg" alt="A fedélzet felülről" loading="lazy"><figcaption>A fedélzet felülről</figcaption></figure>
+      <figure class="slide"><img src="img/kokpit-kint.jpg" alt="A kokpit a kikötőben" loading="lazy"><figcaption>A kokpit a kikötőben</figcaption></figure>
+      <figure class="slide"><img src="img/kokpit.jpg" alt="Kokpit és kajütbejárat" loading="lazy"><figcaption>Kokpit és kajütbejárat</figcaption></figure>
+      <figure class="slide"><img src="img/orr.jpg" alt="Teak orrfedélzet" loading="lazy"><figcaption>Teak orrfedélzet</figcaption></figure>
+      <figure class="slide"><img src="img/naplemente.jpg" alt="Naplemente a fock mögött" loading="lazy"><figcaption>Naplemente a fock mögött</figcaption></figure>
+      <figure class="slide"><img src="img/belso.jpg" alt="A kajüt" loading="lazy"><figcaption>A kajüt</figcaption></figure>
+      <figure class="slide"><img src="img/kikoto.jpg" alt="A kikötőben" loading="lazy"><figcaption>A kikötőben</figcaption></figure>
+      <figure class="slide"><img src="img/kikoto-este.jpg" alt="Esti fényben" loading="lazy"><figcaption>Esti fényben</figcaption></figure>
+    </div>
+    <div class="slide-nav">
+      <button type="button" id="prev" aria-label="Előző kép">←</button>
+      <span id="count">1 / 12</span>
+      <button type="button" id="next" aria-label="Következő kép">→</button>
     </div>
   </div>
 </section>
 
 <section class="heritage">
   <div class="wrap">
-    <div class="big" aria-hidden="true">#29</div>
+    <figure class="heritage-pic"><img src="img/kikoto.jpg" alt="A Szélkirálynő a kikötőben" loading="lazy"><span class="badge" aria-hidden="true">#29</span></figure>
     <div class="text">
       <p class="eyebrow">A típus</p>
       <h2>Kézzel épült Hajmáskéren</h2>
@@ -423,6 +456,15 @@ footer .wrap { padding-block: 18px 28px; border-top: 1px solid rgba(243,247,248,
   v.addEventListener('play', sync); v.addEventListener('pause', sync);
   b.addEventListener('click', function () { if (v.paused) { v.play().catch(function(){}); } else { v.pause(); } });
   sync();
+})();
+(function () {
+  var box = document.getElementById('slides'), n = box.children.length, c = document.getElementById('count');
+  function idx() { return Math.round(box.scrollLeft / box.clientWidth); }
+  function go(d) { var i = Math.max(0, Math.min(n - 1, idx() + d)); box.scrollTo({ left: i * (box.children[0].offsetWidth + 10), behavior: 'smooth' }); }
+  document.getElementById('prev').addEventListener('click', function () { go(-1); });
+  document.getElementById('next').addEventListener('click', function () { go(1); });
+  box.addEventListener('keydown', function (e) { if (e.key === 'ArrowLeft') go(-1); if (e.key === 'ArrowRight') go(1); });
+  box.addEventListener('scroll', function () { c.textContent = (Math.round(box.scrollLeft / (box.children[0].offsetWidth + 10)) + 1) + ' / ' + n; });
 })();
 </script>
 
